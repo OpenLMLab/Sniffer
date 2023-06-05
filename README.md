@@ -27,6 +27,21 @@ Sniffer的主要特点包括：
 python backend_api.py --port 6006 --timeout 30000 --debug --model=damo --gpu=3
 ```
 
-- 我们提供了训练sniffer分类器和Roberta分类器的代码，分别保存在`roberta_train`和`linear_model_train`目录下。
+- 我们提供了sniffer分类器的训练代码和测试代码，相关的代码保存在`sniffer`目录下。
 
+  **训练代码**
+
+  - `train.py`：sniffer分类器训练代码。
+  - `train_j_neo_divided.py`：将gptj，gptneo当作不同来源，训练sniffer分类器。
+  - `train_white_box.py`：结合了gpt3.5 text-003返回的logits的sniffer分类器训练代码。
+  - `train_with_semantic.py`：结合了roberta语义向量的分类器训练代码，即结合了sniffer model-wise的特征和roberta semantic-wise的特征。
+
+  **测试代码**
+
+  - `test.py`：对训练好的sniffer分类器进行测试。
+
+  - `test_semantic.py`：对结合了semantic-wise和model-wise特征训练出来的分类器进行测试。
+
+- 我们还提供了基线模型Roberta分类器的相关训练代码，保存在`roberta`目录下。
 - 我们还提供了detectGPT消融实验时，用于生成扰动数据的相关代码，保存在detectgpt目录下。
+
